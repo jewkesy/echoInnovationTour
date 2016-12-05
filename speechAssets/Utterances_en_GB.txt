@@ -1,0 +1,12 @@
+WelcomeIntent welcome our guests
+WelcomeIntent say hello
+WelcomeIntent welcome our vistors
+WelcomeIntent say hi
+GetRoomDescIntent describe the room
+GetRoomDescIntent tell me the room
+GetRoomDescIntent tell me about the room
+GetRoomDescIntent walk me round the room
+GetRoomDescIntent what demos are here
+GetRoomDescIntent what demos are these
+GetRoomDescIntent describe the demos
+GetRoomDescIntent tell me about the demos

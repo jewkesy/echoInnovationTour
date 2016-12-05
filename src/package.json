@@ -1,0 +1,27 @@
+{
+  "name": "echoinnovationtour",
+  "version": "1.0.0",
+  "description": "Learning how to develop for the Amazon Echo Dot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jewkesy/echoInnovationTour.git"
+  },
+  "keywords": [
+    "Amazon",
+    "Echo",
+    "Dot"
+  ],
+  "author": "Daryl Jewkes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jewkesy/echoInnovationTour/issues"
+  },
+  "homepage": "https://github.com/jewkesy/echoInnovationTour#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.6"
+  }
+}
