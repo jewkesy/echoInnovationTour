@@ -5,12 +5,12 @@ var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 var languageStrings = {
     "en-GB": {
         "translation": {
-            "GREETINGS": [
-                "Welcome to the Innovation Suite",
-                "Hello, pleased to see you"
+            "WELCOMES": [
+                "welcome to the Innovation Suite",
+                "pleased to meet you"
             ],
-            "SKILL_NAME" : "Welcome options",
-            "GET_GREET_MESSAGE" : " ",
+            "SKILL_NAME": "Innovation Suite Tour",
+            "GET_HELLO_MESSAGE": "Hello: ",
             "HELP_MESSAGE" : "You can say tell me about the room, or, you can say exit... What can I help you with?",
             "HELP_REPROMPT" : "What can I help you with?",
             "STOP_MESSAGE" : "Goodbye!"
@@ -37,13 +37,22 @@ var handlers = {
     'Welcome': function () {
         // Get a random space fact from the space facts list
         // Use this.t() to get corresponding language data
-        var greetArr = this.t('GREETINGS');
-        var greetIndex = Math.floor(Math.random() * greetArr.length);
-        var randomGreet = greetArr[greetIndex];
+        // const factArr = this.t('FACTS');
+        // const factIndex = Math.floor(Math.random() * factArr.length);
+        // const randomFact = factArr[factIndex];
+
+        // // Create speech output
+        // const speechOutput = this.t('GET_FACT_MESSAGE') + randomFact;
+        // this.emit(':tellWithCard', speechOutput, this.t('SKILL_NAME'), randomFact);
+
+        const factArr = this.t('WELCOMES');
+        const factIndex = Math.floor(Math.random() * factArr.length);
+        const randomFact = factArr[factIndex];
 
         // Create speech output
-        var speechOutput = this.t("GET_GREET_MESSAGE") + randomGreet;
-        this.emit(':tellWithCard', speechOutput, this.t("SKILL_NAME"), randomGreet)
+        const speechOutput = this.t('GET_HELLO_MESSAGE') + randomFact;
+        this.emit(':tellWithCard', speechOutput, this.t('SKILL_NAME'), randomFact);
+
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
