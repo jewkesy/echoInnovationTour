@@ -7,6 +7,18 @@
 			"intent":"GetRoomDescIntent"
 		},
 		{
+			"intent":"GetListOfDemosIntent"
+		},
+		{
+			"intent":"DemoIntent",
+			"slots":[
+				{
+					"name":"Demo",
+					"type":"LIST_OF_DEMOS"
+				}
+			]
+		},
+		{
 			"intent":"AMAZON.HelpIntent"
 		},
 		{
