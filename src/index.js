@@ -21,24 +21,40 @@ var languageStrings = {
             "DEMOS": [
                 {
                     "name": "Jaguar Land Rover",
-                    "alias": ["jlr", "j l r", "jaguar land rover"],
+                    "alias": [ "jaguar landrover", "jaguar love", "jlr", "j l r", "jaguar land rover", "taylor", "j alarm", "jello", "jennifer", "china"],
                     "desc": "The Jaguar Land Rover Reporting Solution tracks the training progress of over six thousand employees using a Red Amber and Green dashboard. "
                 },
                 {
                     "name": "CAPA",
-                    "alias": ["cup", "cap", "capa", "cappa"],
+                    "alias": ["cup", "cap", "capa", "cappa", "cat fact", "camper"],
                     "desc": "This is a real-time dashboard monitoring solution. "
 
                 },
                 {
                     "name": "C N E O",
+                    "alias": ["c n e o"],
                     "desc": "A mobile phone application designed for conference attendees. "
-
+                },
+                {
+                    "name": "South Staffs Water",
+                    "alias": ["south staffs water"],
+                    "desc": "Geographical-based data analysis tool. "
+                },
+                {
+                    "name": "LiFi",
+                    "alias": ["lie fi", "lifi", "life five", "life i", "life fi"],
+                    "desc": "Lie Fi enabled ceiling lights provide secure network access to devices sitting underneath the lamps. "
+                },
+                {
+                    "name": "Augmented Reality",
+                    "alias": ["augmented reality", "virtual reality"],
+                    "desc": "Augmented Reality using smart glasses allows field engineers access to technical documents, training videos and faster workflow decisions"
                 }
+
             ],
             "SKILL_NAME": "Innovation Suite Tour",
             "GET_HELLO_MESSAGE": "Hello: ",
-            "HELP_MESSAGE": "You can say tell me about the room, or, you can say exit... What can I help you with?",
+            "HELP_MESSAGE": "You can say what demos are available today, tell me about Jaguar Land Rover or take a tour. What can I help you with?",
             "HELP_REPROMPT": "What can I help you with?",
             "STOP_MESSAGE": "Goodbye!"
         }
@@ -82,7 +98,7 @@ var handlers = {
 
     },
     'GetListOfDemosIntent': function () {
-        var demos = "";
+        var demos = "We have the following demos available: ";
         for (var i = 0; i < this.t('DEMOS').length; i++) {
             demos += this.t('DEMOS')[i].name + ', ';
         }
