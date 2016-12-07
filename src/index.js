@@ -59,7 +59,7 @@ var languageStrings = {
             "GET_HELLO_MESSAGE": "Hello: ",
             "HELP_MESSAGE": "You can say what demos are available today, tell me about Jaguar Land Rover or take a tour. What can I help you with?",
             "HELP_REPROMPT": "What can I help you with?",
-            "STOP_MESSAGE": "Goodbye!"
+            "STOP_MESSAGE": "Ok! If you need me, just ask!"
         }
     }
 };
@@ -101,9 +101,6 @@ var handlers = {
 
     },
     'GetListOfDemosIntent': function () {
-        // var phrase = this.event.request.intent.slots.Demo.value.toLowerCase();
-        // if (phrase) return this.emit(':tellWithCard', phrase, this.t('SKILL_NAME'), phrase);
-
 
         var demos = "We have the following demos available: ";
         for (var i = 0; i < this.t('DEMOS').length; i++) {
@@ -114,13 +111,8 @@ var handlers = {
             }
         }
 
-        // if (demos.substring(demos.length-2, 2) == ', ') {
-        //     demos = demos.substring(0, demos.length-2);
-        // }
-        
-
         var reprompt = "Which demo would you like to learn about?";
-        this.emit(':askWithCard', demos + reprompt, reprompt); 
+        this.emit(':askWithCard', demos + reprompt, this.t('SKILL_NAME'), reprompt); 
     },
     'DemoIntent': function () {
         // if(this.event.request.intent.slots.Language.value && this.event.request.intent.slots.Language.value.toLowerCase() == "java") {
@@ -133,8 +125,8 @@ var handlers = {
                 break;
            }
         }
-
-        this.emit(':tellWithCard', info, this.t('SKILL_NAME'), info); 
+        var reprompt = "Which demo would you like to learn about?";
+        this.emit(':askWithCard', info + reprompt, this.t('SKILL_NAME'), reprompt); 
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
