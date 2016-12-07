@@ -11,7 +11,7 @@ var languageStrings = {
             ],
             "INTRO": "Let me introduce a few of the demonstraters that we have within the room. ",
             "TOUR": [
-                "Touch Tasty is our sixty-five inch, multi-touch screen that showcases our software. ",
+                "Touch Tasty is our sixty-five inch multi-touch screen that showcases our software. ",
                 "The three-screen display represents our data visualisation capability. Running against the Conduce framework, we can provide a wide variety of data visuals focused around geographical information. ",
                 "Big Tasty is our room feature. With four four K screens providing our presentation material. ",
                 "If you look above you, you can see our Lie Fi installation. ",
@@ -115,8 +115,6 @@ var handlers = {
         this.emit(':askWithCard', demos + reprompt, this.t('SKILL_NAME'), reprompt); 
     },
     'DemoIntent': function () {
-        // if(this.event.request.intent.slots.Language.value && this.event.request.intent.slots.Language.value.toLowerCase() == "java") {
-           // console.log( this.event.request.intent.slots.Demo.value);
         var phrase = this.event.request.intent.slots.Demo.value.toLowerCase();
         var info = 'Hmmmmm, could not find a demo called ' + phrase;
         for (var i = 0; i < this.t('DEMOS').length; i++) {
