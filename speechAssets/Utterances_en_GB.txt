@@ -4,4 +4,5 @@ GetListOfDemosIntent what demos can you show me
 GetListOfDemosIntent what demos can you tell me about
 DemoIntent tell me about {Demo}
 DemoIntent about {Demo}
+DemoIntent {Demo}
 HelpIntent for help

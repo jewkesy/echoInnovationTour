@@ -15,7 +15,7 @@ var languageStrings = {
                 "The three-screen display represents our data visualisation capability. Running against the Conduce framework, we can provide a wide variety of data visuals focused around geographical information. ",
                 "Big Tasty is our room feature. With four four K screens providing our presentation material. ",
                 "If you look above you, you can see our Lie Fi installation. ",
-                "The A R room is where you'll find our venture in Augmented Reality. ",
+                "The <say-as interpret-as='spell-out'>ar</say-as> room is where you'll find our venture in Augmented Reality. ",
                 "Across the back of the room you can get hands-on with a range of our products, for example: - Jaguar Land Rover Reporting Solution and Data Quality Scorecard. "
             ],
             "DEMOS": [
@@ -101,6 +101,10 @@ var handlers = {
 
     },
     'GetListOfDemosIntent': function () {
+        // var phrase = this.event.request.intent.slots.Demo.value.toLowerCase();
+        // if (phrase) return this.emit(':tellWithCard', phrase, this.t('SKILL_NAME'), phrase);
+
+
         var demos = "We have the following demos available: ";
         for (var i = 0; i < this.t('DEMOS').length; i++) {
             if (this.t('DEMOS')[i].speak) {
@@ -108,9 +112,15 @@ var handlers = {
             } else {
                 demos += this.t('DEMOS')[i].name + ', ';
             }
-            
         }
-         this.emit(':tell', demos); 
+
+        // if (demos.substring(demos.length-2, 2) == ', ') {
+        //     demos = demos.substring(0, demos.length-2);
+        // }
+        
+
+        var reprompt = "Which demo would you like to learn about?";
+        this.emit(':askWithCard', demos + reprompt, reprompt); 
     },
     'DemoIntent': function () {
         // if(this.event.request.intent.slots.Language.value && this.event.request.intent.slots.Language.value.toLowerCase() == "java") {
