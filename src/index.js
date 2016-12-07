@@ -22,7 +22,8 @@ var languageStrings = {
                 {
                     "name": "Jaguar Land Rover",
                     "alias": [ "jaguar landrover", "jaguar love", "jlr", "j l r", "jaguar land rover", "taylor", "j alarm", "jello", "jennifer", "china"],
-                    "desc": "The Jaguar Land Rover Reporting Solution tracks the training progress of over six thousand employees using a Red Amber and Green dashboard. "
+                    "desc": "The Jaguar Land Rover Reporting Solution tracks the training progress of over six thousand employees using a Red Amber and Green dashboard. ",
+                    "speak": "<say-as interpret-as='spell-out'>jlr</say-as>"
                 },
                 {
                     "name": "CAPA",
@@ -31,9 +32,10 @@ var languageStrings = {
 
                 },
                 {
-                    "name": "C N E O",
+                    "name": "CNEO",
                     "alias": ["c n e o"],
-                    "desc": "A mobile phone application designed for conference attendees. "
+                    "desc": "A mobile phone application designed for conference attendees. ",
+                    "speak": "<say-as interpret-as='spell-out'>cneo</say-as>"
                 },
                 {
                     "name": "South Staffs Water",
@@ -41,9 +43,10 @@ var languageStrings = {
                     "desc": "Geographical-based data analysis tool. "
                 },
                 {
-                    "name": "LiFi",
+                    "name": "Li-Fi",
                     "alias": ["lie fi", "lifi", "life five", "life i", "life fi"],
-                    "desc": "Lie Fi enabled ceiling lights provide secure network access to devices sitting underneath the lamps. "
+                    "desc": "Lie Fi enabled ceiling lights provide secure network access to devices sitting underneath the lamps. ",
+                    "speak": "Lie Fi"
                 },
                 {
                     "name": "Augmented Reality",
@@ -86,7 +89,7 @@ var handlers = {
 
         var tour = "";
         for (var i = 0; i < this.t('TOUR').length; i++) {
-            tour += this.t('TOUR')[i];
+            tour +=  "<p>" + this.t('TOUR')[i] + "</p>";
         }
 
         // Create speech output
@@ -100,7 +103,12 @@ var handlers = {
     'GetListOfDemosIntent': function () {
         var demos = "We have the following demos available: ";
         for (var i = 0; i < this.t('DEMOS').length; i++) {
-            demos += this.t('DEMOS')[i].name + ', ';
+            if (this.t('DEMOS')[i].speak) {
+                demos += this.t('DEMOS')[i].speak + ', ';
+            } else {
+                demos += this.t('DEMOS')[i].name + ', ';
+            }
+            
         }
          this.emit(':tell', demos); 
     },
@@ -111,7 +119,7 @@ var handlers = {
         var info = 'Hmmmmm, could not find a demo called ' + phrase;
         for (var i = 0; i < this.t('DEMOS').length; i++) {
            if (this.t('DEMOS')[i].alias.indexOf(phrase) > -1) {
-                info = this.t('DEMOS')[i].desc;
+                info =  "<p>" + this.t('DEMOS')[i].desc + "</p>";
                 break;
            }
         }
