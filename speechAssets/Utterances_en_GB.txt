@@ -1,10 +1,19 @@
+WelcomeIntent to introduce herself
+WelcomeIntent to say hello
+WelcomeIntent to say hi
+WelcomeIntent to describe the room
+WelcomeIntent to tour the room
 GetListOfDemosIntent what demos are here
 GetListOfDemosIntent what demos are available
+GetListOfDemosIntent what demos are available today
+GetListOfDemosIntent what demos are on
 GetListOfDemosIntent what demos can you show me
 GetListOfDemosIntent what demos can you tell me about
 GetListOfDemosIntent what demos do we have
+GetListOfDemosIntent what demos do you have
 GetListOfDemosIntent list demos
 DemoIntent tell me about {Demo}
+DemoIntent to tell me about {Demo}
 DemoIntent about {Demo}
 DemoIntent {Demo}
 AMAZON.HelpIntent for help

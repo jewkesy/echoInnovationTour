@@ -33,13 +33,13 @@ var languageStrings = {
                 },
                 {
                     "name": "CNEO",
-                    "alias": ["c n e o"],
+                    "alias": ["c n e o", "c. n. e. o.", "sierra leone"],
                     "desc": "A mobile phone application designed for conference attendees. ",
                     "speak": "<say-as interpret-as='spell-out'>cneo</say-as>"
                 },
                 {
                     "name": "South Staffs Water",
-                    "alias": ["south staffs water"],
+                    "alias": ["south staffs water", "self start water", "self staffs water", "yourself stats water", "south start water",  "yourself does water", "south dakota"],
                     "desc": "Geographical-based data analysis tool. "
                 },
                 {
@@ -74,8 +74,22 @@ exports.handler = function(event, context, callback) {
 };
 
 var handlers = {
+
+// this.emit(':tell', speechOutput);
+// this.emit(':ask', speechOutput, repromptSpeech);
+// this.emit(':askWithCard', speechOutput, repromptSpeech, cardTitle, cardContent, imageObj);
+// this.emit(':tellWithCard', speechOutput, cardTitle, cardContent, imageObj);
+// this.emit(':tellWithLinkAccountCard', speechOutput);
+// this.emit(':askWithLinkAccountCard', speechOutput);
+// this.emit(':responseReady'); // Called after the response is built but before it is returned to the Alexa service. Calls :saveState. Can be overridden.
+// this.emit(':saveState', false); // Handles saving the contents of this.attributes and the current handler state to DynamoDB and then sends the previously built response to the Alexa service. Override if you wish to use a different persistence provider. The second attribute is optional and can be set to 'true' to force saving.
+// this.emit(':saveStateError'); // Called if there is an error while saving state. Override to handle any errors yourself.
+
     'LaunchRequest': function () {
         this.emit('Welcome');
+    },
+    'HelloIntent': function () {
+        this.emit(':tell', 'Hello, welcome to the Innovation Suite.');
     },
     'WelcomeIntent': function () {
         this.emit('Welcome');
@@ -93,7 +107,7 @@ var handlers = {
         }
 
         // Create speech output
-        const speechOutput = this.t('GET_HELLO_MESSAGE') + randomWel +  this.t('INTRO') + tour;
+        const speechOutput = this.t('GET_HELLO_MESSAGE') + this.t('INTRO') + tour;
         this.emit(':tellWithCard', speechOutput, this.t('SKILL_NAME'), randomWel);
 
     },
@@ -112,7 +126,7 @@ var handlers = {
         }
 
         var reprompt = "Which demo would you like to learn about?";
-        this.emit(':askWithCard', demos + reprompt, this.t('SKILL_NAME'), reprompt); 
+        this.emit(':ask', demos + reprompt, reprompt); 
     },
     'DemoIntent': function () {
         var phrase = this.event.request.intent.slots.Demo.value.toLowerCase();
@@ -124,7 +138,7 @@ var handlers = {
            }
         }
         var reprompt = "Which demo would you like to learn about?";
-        this.emit(':askWithCard', info + reprompt, this.t('SKILL_NAME'), reprompt); 
+        this.emit(':ask', info + reprompt, reprompt); 
     },
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");

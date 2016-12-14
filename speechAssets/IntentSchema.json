@@ -4,6 +4,9 @@
 			"intent":"WelcomeIntent"
 		},
 		{
+			"intent":"HelloIntent"
+		},
+		{
 			"intent":"GetRoomDescIntent"
 		},
 		{
